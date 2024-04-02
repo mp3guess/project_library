@@ -1,12 +1,10 @@
 package library.dao;
 
 import library.models.Book;
-import library.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class BookDAO {
                 book.getName(), book.getAuthor_name(), book.getYear());
     }
 
-    public void update(Book updatedBook){
+    public void update(int id, Book updatedBook){
         jdbcTemplate.update("update book set name=?,author_name=?,year=?",
                 updatedBook.getName(),updatedBook.getAuthor_name(),updatedBook.getYear());
     }
