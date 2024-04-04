@@ -46,7 +46,7 @@ public class BooksController {
         return "redirect:/books";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("book", bookDAO.show(id));
         return "books/edit";

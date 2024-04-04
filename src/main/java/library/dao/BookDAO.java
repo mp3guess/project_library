@@ -22,7 +22,7 @@ public class BookDAO {
     }
 
     public Book show(int id) {
-        return jdbcTemplate.query("select * from book where id=?", new Object[id],
+        return jdbcTemplate.query("select * from book where id=?",new Object[]{id},
                 new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
     }
 

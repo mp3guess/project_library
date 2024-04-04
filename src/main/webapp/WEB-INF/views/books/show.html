@@ -8,7 +8,6 @@
 
 <p th:text="${book.getName()+', '+book.getAuthor_name()+', '+book.getYear()}">VALUE</p>
 
-<p th:text="${book.getName()+', '+book.getAuthor_name()+', '+book.getYear()}">VALUE</p>
 
 <a th:href="@{/books/{id}/edit(id=${book.getId()})}">Edit</a>
 
