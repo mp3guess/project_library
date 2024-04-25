@@ -1,30 +1,31 @@
 package library.models;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class Book {
 
+public class Book {
     private int id;
 
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    @NotEmpty(message = "Name should not be empty")
-    private String name;
+    @NotEmpty(message = "Book title should not be empty")
+    @Size(min = 2, max = 100, message = "Book title should be between 2 and 100 characters")
+    private String title;
 
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     @NotEmpty(message = "Author name should not be empty")
-    private String author_name;
+    @Size(min = 2, max = 100, message = "Author name should be between 2 and 100 characters")
+    private String author;
 
-    @NotEmpty(message = "Year should not be empty")
+    @Min(value = 1500, message = "Year should be > 1500")
     private int year;
 
     public Book() {
+
     }
 
-    public Book(int id, String name, String author_name, int year) {
-        this.id = id;
-        this.name = name;
-        this.author_name = author_name;
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
         this.year = year;
     }
 
@@ -36,20 +37,20 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAuthor_name() {
-        return author_name;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthor_name(String author_name) {
-        this.author_name = author_name;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public int getYear() {

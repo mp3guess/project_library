@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,13 +6,16 @@
     <title>Index</title>
 </head>
 <body>
+
 <div th:each="person : ${people}">
     <a th:href="@{/people/{id}(id=${person.getId()})}"
-       th:text="${person.getName() + ', '+ person.getYearOfBirth()}">user</a>
-
+       th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}">user</a>
 </div>
+
 <br/>
 <hr/>
-<a href="people/new">Create a new person</a>
+
+<a href="/people/new">Add person</a>
+
 </body>
 </html>
